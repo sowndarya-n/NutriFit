@@ -1,0 +1,145 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="homeMain">
+        <div class="firstHeader">
+            <div class="infoHome">
+                <div>
+                    <h3>Welcome to your Ultimate Nutrition & Fitness Hub!</h3>
+                    <p>Transform Your Health, One Step at a Time</p>
+                </div>
+                
+            </div>
+            <div class="cardSection">
+                <div class="row justify-content-center">
+                    <div class="col-4">
+                        <div class="pop-out-card">
+                            <div class="card-body">
+                                <img src="{% static 'img/NutriFit.png' %}" alt="NutriFit Logo" width="130" height="130">
+                                <!-- <h3 class="card-title" style="margin-bottom: 0;">NutriFit</h3> -->
+                                <p class="tagline">Your premier destination for all things nutrition and fitness.</p>
+                                <hr>
+                                <p class="card-text" style="text-align: justify;margin-top: 15px;">Whether you're a beginner looking to start your wellness journey or a seasoned athlete aiming to fine-tune your performance, 
+                                    we've got you covered!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <a class="btn btn-primary btn-lg" href="{% url 'membership' %}" role="button">Join Now</a> -->
+    </div>
+    <div class="whyWeareBest">
+        <h3 style="text-align: center; color: #5D737E;">Why NutriFit is the Right Fit for You</h3>
+        <div class="row whyBestCards">
+            <div class="col-4">
+                <div class="why-best-card">
+                    <div class="card-body">
+                        <img class="whybestImg" src="{% static 'img/personalised_nutri.jpg' %}" alt="Nutrition Plan image">
+                        <h3 class="card-title">Personalized Nutrition Plans</h3>
+                        <p class="card-text" style="text-align: justify;margin-top: 15px;">
+                            Tailored meal plans designed to fit your specific dietary needs, preferences, and goals. Whether you're focusing on weight loss, gain, or overall maintenance, our nutritionists have you covered.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="why-best-card">
+                    <div class="card-body">
+                        <img class="whybestImg" src="{% static 'img/expert_fitness.jpg' %}" alt="Fitness Program image">
+                        <h3 class="card-title">Expert Fitness Programs</h3>
+                        <p class="card-text" style="text-align: justify;margin-top: 15px;">
+                            Access a diverse range of workout programs designed by professionals. From strength training and cardio routines to yoga and Pilates, discover workouts that match your fitness objectives.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="why-best-card">
+                    <div class="card-body">
+                        <img class="whybestImg" src="{% static 'img/holistic_approach.jpg' %}" alt="Holistic Approach image">
+                        <h3 class="card-title">Holistic Approach</h3>
+                        <p class="card-text" style="text-align: justify;margin-top: 15px;">
+                            We believe in the power of a balanced lifestyle. Beyond diet and exercise, we promote mental well-being and stress management to help you achieve sustainable health improvements.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="discoverOurFeatures">
+        <h3 style="text-align: center; color: #5D737E;margin-bottom: 0px;">What We Offer</h3>
+        <div class="row ourFeatures justify-content-center align-items-center">
+            <div class="col-11">
+                <div class="our-features-card">
+                    <div class="card-body">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-3">
+                                <img class="whybestImg" src="{% static 'img/chat_support.png' %}" alt="Nutrition Plan image">
+                                <h3 class="card-title">AI Chat Assistance</h3>
+                            </div>
+                            <div class="col-9">
+                                <p class="card-text" style="text-align: justify;margin-top: 15px;">
+                                    Experience seamless interaction with our AI-Powered Chat Assistance, your virtual fitness advisor available 24/7. Whether you're seeking guidance on exercise techniques, personalized workout plans, nutritional advice, or motivation to stay on track, our advanced AI technology ensures you receive instant, accurate, and personalized support. Get real-time responses to your queries, ensuring you have the information you need to achieve your fitness goals efficiently.
+                                </p>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </div>
+            <div class="col-11">
+                <div class="our-features-card">
+                    <div class="card-body">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-3">
+                                <img class="whybestImg" src="{% static 'img/fitness_blog.png' %}" alt="Fitness Program image">
+                                <h3 class="card-title">Fitness Blog Hub</h3>
+                            </div>
+                            <div class="col-9">
+                                <p class="card-text" style="text-align: justify;margin-top: 15px;">
+                                    Explore our comprehensive Fitness Blog Hub, where our team of fitness experts and trainers share valuable insights and tips on a wide range of topics. From beginner-friendly workout routines to advanced training strategies, our blog articles are designed to educate and inspire, empowering you to make informed decisions about your fitness journey. Stay updated with the latest trends and evidence-based practices in fitness and wellness.
+                                </p>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </div>
+            <div class="col-11">
+                <div class="our-features-card">
+                    <div class="card-body">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-3">
+                                <img class="whybestImg" src="{% static 'img/nutrition_navigator.jpg' %}" alt="Holistic Approach image">
+                                <h3 class="card-title">Nutrition Navigator</h3>
+                            </div>
+                            <div class="col-9">
+                                <p class="card-text" style="text-align: justify;margin-top: 15px;">
+                                    Navigate your nutrition journey with our Nutrition Navigator, providing detailed insights into calorie information for popular food products and expert advice on diet supplements. Whether you're managing your calorie intake for weight loss, muscle gain, or general health improvement, our comprehensive resources help you make informed dietary choices. Receive personalized recommendations on supplements that complement your nutrition plan and support your fitness goals effectively.
+                                </p>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </div>
+            <div class="col-11">
+                <div class="our-features-card">
+                    <div class="card-body">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-3">
+                                <img class="whybestImg" src="{% static 'img/mental_wellness.jpg' %}" alt="Mental Wellness image">
+                                <h3 class="card-title">Digital Wellness Workshops</h3>
+                            </div>
+                            <div class="col-9">
+                                <p class="card-text" style="text-align: justify;margin-top: 15px;">
+                                    Participate in our engaging Digital Wellness Workshops, featuring a curated collection of videos led by mental health professionals and wellness experts. Explore topics such as stress management techniques, mindfulness practices, emotional resilience, and overall mental well-being. These workshops are designed to equip you with practical strategies and insights to enhance your mental health, ensuring a holistic approach to wellness alongside your physical fitness journey.
+                                </p>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container marB20 mt-4">
+    <div class="row alignItemsCenter justifyCenter">
+        <div class="col-9">
+            <h1>{{ expert_blogs_detail.title }}</h1>
+        </div>
+        <div class="col-3" style="text-align: right;">
+            <a href="{% url 'expert_blogs' %}" class="btn btnBorder mt-auto">Back to Expert Blogs</a>
+        </div>   
+    </div>
+    
+
+    {% if expert_blogs.image %}
+    <div class="blogImgThumbnail guideImg">
+        <img src="{% static expert_blogs.image %}" alt="{{ expert_blogs.title }}" class="card-img-top blogImg">
+    </div>   
+    {% endif %}
+
+    <div class="content marT10">
+        <h4>Overview</h4>
+        <p>{{ expert_blogs.description }}</p>
+
+        <h4 class="marT10">Details</h4>
+       
+           
+            <p>{{ expert_blogs.detailed_info }}</p>
+    
+      
+        <!-- <p>{{ guide.content }}</p> -->
+
+        {% if expert_blogs.link %}
+            <a href="{{ expert_blogs.link }}" target="_blank" class="btn btnBorder marT10">Learn More</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

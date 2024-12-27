@@ -1,0 +1,72 @@
+body
+{
+    margin: 0;
+}
+.otpVerifyMain 
+{
+    background-color: #D3D3D3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+}
+.otpVerifyContainer 
+{
+    width: 300px;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.otpVerifyForm
+{    
+    display: flex;
+    flex-direction: column;
+}
+label {
+    margin-bottom: 5px;
+    color: #555;
+}
+.otpVerifyForm input 
+{
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.verifyP
+{
+    font-size: 12px;
+    color: #5D737E;
+}
+.verifyOtpBtn 
+{
+    padding: 10px;
+    width: 100px;
+    border: none;
+    border-radius: 100px;
+    background-color: #5D737E;
+    color: #02111B;
+    cursor: pointer;
+}
+.verifyOtpBtn :hover 
+{
+    background-color: #5D737E;
+}
+.verifyOtpBtn p
+{
+    margin: 0;
+    font-size: 16px;
+}
+.otpVerifyError {
+    color: red;
+}
+.verifyOTPBtnDiv
+{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}

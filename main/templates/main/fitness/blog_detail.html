@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container marB20">
+    <h1 class="mt-4">{{ post.title }}</h1>
+    <p class="text-muted">Published on {{ post.date | date:"F j, Y" }}</p>
+    <img src="{% static post.image %}" alt="Image for {{ post.title }}" class="img-fluid my-3 rounded">
+    <div class="content">
+        <p>{{ post.content }}</p>
+    </div>
+    <a href="{% url 'mental_fitness' %}" class="btn btnBorder mt-4 ">Back to Blogs</a>
+</div>
+{% endblock %}

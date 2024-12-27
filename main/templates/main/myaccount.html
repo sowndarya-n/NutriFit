@@ -1,0 +1,168 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container marB20" id="mainContainer">
+    <h1 class="mt-4 text-center display-5">My Account</h1>
+    <p class="text-center text-muted mb-4">Manage your personal information and view your subscription details.</p>
+
+    <!-- Success Message -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success" role="alert" id="success-message">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- User Information Form -->
+    <div class="account-info">
+        <form id="accountForm" method="POST" action="{% url 'update_account' %}">
+            {% csrf_token %}
+            
+            <!-- User Email -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-control" value="{{ user.email }}" readonly>
+            </div>
+
+            <!-- User Phone Number -->
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" class="form-control" value="{{ user_profile.phone }}" placeholder="Enter your phone number">
+            </div>
+
+            <!-- User Address -->
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" class="form-control" placeholder="Enter your address">{{ user_profile.address }}</textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btnBorder mt-3">Save Changes</button>
+        </form>
+
+        <!-- Subscription Information -->
+        {% if user_subscription %}
+            <h5 class="mt-4">Subscription Information</h5>
+            <div class="form-group">
+                <label for="plan">Current Plan</label>
+                <input type="text" id="plan" name="plan" class="form-control" value="{{ user_subscription.plan }}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="subscription_type">Subscription Type</label>
+                <input type="text" id="subscription_type" name="subscription_type" class="form-control" value="{{ user_subscription.subscription_type }}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="start_date">Start Date</label>
+                <input type="text" id="start_date" name="start_date" class="form-control" value="{{ user_subscription.start_date }}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="expiry_date">Expiry Date</label>
+                <input type="text" id="expiry_date" name="expiry_date" class="form-control" value="{{ user_subscription.expiry_date }}" readonly>
+            </div>
+
+            <!-- Cancel Subscription Button -->
+            <button class="btn btn-danger mt-4" onclick="openCancelModal()">Cancel Subscription</button>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Cancel Subscription Modal -->
+<div class="modal" id="cancelSubscriptionModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cancel Subscription</h5>
+                <button type="button" class="close" onclick="closeCancelModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="cancelForm" method="POST" action="{% url 'cancel_subscription' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="cancel_email">Email</label>
+                        <input type="email" id="cancel_email" name="email" class="form-control" value="{{ user.email }}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="reason">Reason for Cancellation</label>
+                        <textarea id="reason" name="reason" class="form-control" placeholder="Enter your reason for cancellation" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Submit Cancellation Request</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .account-info {
+        max-width: 600px;
+        margin: auto;
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control[readonly] {
+        background-color: #e9ecef;
+    }
+
+    /* Modal Styling */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1050;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-dialog {
+        max-width: 500px;
+        margin: auto;
+    }
+
+    /* Apply blur effect */
+    .blurred {
+        filter: blur(8px);
+        transition: filter 0.3s ease;
+    }
+</style>
+
+<script>
+    // Automatically hide the success message after 10 seconds
+    window.onload = function() {
+        setTimeout(function() {
+            const successMessage = document.getElementById('success-message');
+            if (successMessage) {
+                successMessage.style.display = 'none';
+            }
+        }, 10000); // 10000 milliseconds = 10 seconds
+    };
+
+    // Open Cancel Subscription Modal
+    function openCancelModal() {
+        document.getElementById('cancelSubscriptionModal').style.display = 'block';
+        document.getElementById('mainContainer').classList.add('blurred');
+    }
+
+    // Close Cancel Subscription Modal
+    function closeCancelModal() {
+        document.getElementById('cancelSubscriptionModal').style.display = 'none';
+        document.getElementById('mainContainer').classList.remove('blurred');
+    }
+</script>
+
+{% endblock %}

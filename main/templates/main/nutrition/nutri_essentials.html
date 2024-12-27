@@ -1,0 +1,114 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4 text-center display-5">Nutrition Essentials</h1>
+    <p class="text-center text-muted mb-4">Discover the must-have nutrition products to support a healthy lifestyle.</p>
+
+    <!-- Essentials List -->
+    <div class="row">
+        <!-- Product Item -->
+        <div class="col-md-6 col-lg-4 mb-4" id="product-1">
+            <div class="card shadow-sm h-100">
+                <img src="{% static 'img/protein_powder.png' %}" class="card-img-top" alt="Protein Powder">
+                <div class="card-body cardBlog">
+                    <h5 class="card-title">Protein Powder</h5>
+                    <p class="card-text">A convenient way to increase protein intake, perfect for muscle repair and growth after workouts.</p>
+                    <a href="https://www.amazon.com/s?k=protein+powder" target="_blank" class="btn btnBorder">Buy Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4" id="product-2">
+            <div class="card shadow-sm h-100">
+                <img src="{% static 'img/multivitamins.jpg' %}" class="card-img-top" alt="Multivitamins">
+                <div class="card-body cardBlog">
+                    <h5 class="card-title">Multivitamins</h5>
+                    <p class="card-text">A daily multivitamin can help fill nutrient gaps and support overall health.</p>
+                    <a href="https://www.amazon.com/s?k=multivitamins" target="_blank" class="btn btnBorder">Buy Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4" id="product-3">
+            <div class="card shadow-sm h-100">
+                <img src="{% static 'img/omega3.jpg' %}" class="card-img-top" alt="Omega-3 Supplements">
+                <div class="card-body cardBlog">
+                    <h5 class="card-title">Omega-3 Supplements</h5>
+                    <p class="card-text">Essential fatty acids that support heart health, brain function, and reduce inflammation.</p>
+                    <a href="https://www.amazon.com/s?k=omega+3+supplements" target="_blank" class="btn btnBorder">Buy Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4" id="product-4">
+            <div class="card shadow-sm h-100">
+                <img src="{% static 'img/fiber_supplement.jpg' %}" class="card-img-top" alt="Fiber Supplement">
+                <div class="card-body cardBlog">
+                    <h5 class="card-title">Fiber Supplement</h5>
+                    <p class="card-text">Fiber supports digestive health, keeps you full, and helps regulate blood sugar levels.</p>
+                    <a href="https://www.amazon.com/s?k=fiber+supplement" target="_blank" class="btn btnBorder">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4" id="product-6">
+            <div class="card shadow-sm h-100">
+                <img src="{% static 'img/probiotics.jpg' %}" class="card-img-top" alt="Probiotics">
+                <div class="card-body cardBlog">
+                    <h5 class="card-title">Probiotics</h5>
+                    <p class="card-text">Supports gut health by adding beneficial bacteria, which aids digestion and boosts immunity.</p>
+                    <a href="https://www.amazon.com/s?k=probiotics" target="_blank" class="btn btnBorder">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4" id="product-7">
+            <div class="card shadow-sm h-100">
+                <img src="{% static 'img/vitamin_d.jpg' %}" class="card-img-top" alt="Vitamin D Supplement">
+                <div class="card-body cardBlog">
+                    <h5 class="card-title">Vitamin D Supplement</h5>
+                    <p class="card-text">Essential for bone health and immune support, especially in areas with limited sunlight.</p>
+                    <a href="https://www.amazon.com/s?k=vitamin+d+supplement" target="_blank" class="btn btnBorder">Buy Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4" id="product-5">
+            <div class="card shadow-sm h-100">
+                <img src="{% static 'img/green_powder.jpg' %}" class="card-img-top" alt="Greens Powder">
+                <div class="card-body cardBlog">
+                    <h5 class="card-title">Greens Powder</h5>
+                    <p class="card-text">Packed with vitamins and minerals from vegetables and greens to boost immunity and energy.</p>
+                    <a href="https://www.amazon.com/s?k=greens+powder" target="_blank" class="btn btnBorder">Buy Now</a>
+                </div>
+            </div>
+        </div>
+
+        
+
+        
+
+        <div class="col-md-6 col-lg-4 mb-4" id="product-8">
+            <div class="card shadow-sm h-100">
+                <img src="{% static 'img/electrolytes.jpg' %}" class="card-img-top" alt="Electrolyte Powder">
+                <div class="card-body cardBlog">
+                    <h5 class="card-title">Electrolyte Powder</h5>
+                    <p class="card-text">Helps maintain hydration and energy levels, ideal for athletes and active individuals.</p>
+                    <a href="https://www.amazon.com/s?k=electrolyte+powder" target="_blank" class="btn btnBorder">Buy Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4" id="product-10">
+            <div class="card shadow-sm h-100">
+                <img src="{% static 'img/collagen.jpg' %}" class="card-img-top" alt="Collagen Supplement">
+                <div class="card-body cardBlog">
+                    <h5 class="card-title">Collagen Supplement</h5>
+                    <p class="card-text">Supports skin elasticity, joint health, and hair strength with this protein-rich supplement.</p>
+                    <a href="https://www.amazon.com/s?k=collagen+supplement" target="_blank" class="btn btnBorder">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

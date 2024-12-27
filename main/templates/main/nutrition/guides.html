@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4 text-center display-5">Guides</h1>
+    <p class="text-center text-muted mb-4">Explore essential guides to help you make informed nutrition choices.</p>
+
+    <div class="row">
+        {% for item in content_list %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card shadow-sm h-100">
+                {% if item.image %}
+                <div class="blogImgThumbnail">
+                    <img src="{% static  item.image %}" class="card-img-top blogImg" alt="{{ item.title }}">
+                </div>
+                {% endif %}
+                <div class="card-body cardBlog">
+                    <h5 class="card-title">{{ item.title }}</h5>
+                    <p class="card-text">{{ item.description }}</p>
+                    {% if item.yt_link %}
+                    <a href="{% url 'guide_detail' item.pk %}" class="btn btnBorder mt-auto">Learn More</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

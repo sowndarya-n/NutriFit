@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container marB20 mt-4">
+    <div class="row alignItemsCenter justifyCenter">
+        <div class="col-9">
+            <h1>{{ guide.title }}</h1>
+        </div>
+        <div class="col-3" style="text-align: right;">
+            <a href="{% url 'guides' %}" class="btn btnBorder mt-auto">Back to Guides</a>
+        </div>   
+    </div>
+    
+
+    {% if guides.image %}
+    <div class="blogImgThumbnail guideImg">
+        <img src="{% static guides.image %}" alt="{{ guides.title }}" class="card-img-top blogImg">
+    </div>   
+    {% endif %}
+
+    <div class="content marT10">
+        <h4>Overview</h4>
+        <p>{{ guides.description }}</p>
+
+        <h4 class="marT10">Details</h4>
+       
+            {% for guide in guide_list %}
+            <p>{{ guide }}</p>
+            {% endfor %}
+      
+        <!-- <p>{{ guide.content }}</p> -->
+
+        {% if guides.yt_link %}
+            <a href="{{ guides.yt_link }}" target="_blank" class="btn btnBorder marT10">Watch Video</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

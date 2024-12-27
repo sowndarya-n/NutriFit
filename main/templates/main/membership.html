@@ -1,0 +1,214 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container" id="mainContainer">
+    <h1 class="mt-4 text-center display-5">Membership Plans</h1>
+    <p class="text-center text-muted mb-4">Choose the plan that best suits your fitness journey and enjoy exclusive benefits.</p>
+
+    <!-- Membership Comparison Table -->
+    <div class="table-responsive mb-5">
+        <table class="table table-bordered text-center">
+            <thead class="thead-light">
+                <tr>
+                    <th>Feature</th>
+                    <th>Basic</th>
+                    <th>Premium</th>
+                    <th>Pro</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Access to Fitness & Nutrition Articles</td>
+                    <td>&#10004;</td>
+                    <td>&#10004;</td>
+                    <td>&#10004;</td>
+                </tr>
+                <tr>
+                    <td>Weekly Workout Guides</td>
+                    <td>&#10004;</td>
+                    <td>&#10004;</td>
+                    <td>&#10004;</td>
+                </tr>
+                <tr>
+                    <td>Basic Chat with AI Assistance</td>
+                    <td>&#10004;</td>
+                    <td>&#10004;</td>
+                    <td>&#10004;</td>
+                </tr>
+                <tr>
+                    <td>Personalized Nutrition & Fitness Plans</td>
+                    <td>&#10006;</td>
+                    <td>&#10004;</td>
+                    <td>&#10004;</td>
+                </tr>
+                <tr>
+                    <td>Advanced AI Assistance</td>
+                    <td>&#10006;</td>
+                    <td>&#10004;</td>
+                    <td>&#10004;</td>
+                </tr>
+                <tr>
+                    <td>Monthly Progress Tracking</td>
+                    <td>&#10006;</td>
+                    <td>&#10004;</td>
+                    <td>&#10004;</td>
+                </tr>
+                <tr>
+                    <td>One-on-One Coaching Sessions</td>
+                    <td>&#10006;</td>
+                    <td>&#10006;</td>
+                    <td>&#10004;</td>
+                </tr>
+                <tr>
+                    <td>Priority Support</td>
+                    <td>&#10006;</td>
+                    <td>&#10006;</td>
+                    <td>&#10004;</td>
+                </tr>
+                <tr>
+                    <td>Exclusive Member-Only Content</td>
+                    <td>&#10006;</td>
+                    <td>&#10006;</td>
+                    <td>&#10004;</td>
+                </tr>
+                <!-- Row for Join Now Buttons -->
+                <tr>
+                    <td></td> <!-- Empty cell to align with features column -->
+                    <td><button onclick="openMembershipModal('Basic Plan')" class="btn btnBorder">Join Basic</button></td>
+                    <td><button onclick="openMembershipModal('Premium Plan')" class="btn btnBorder">Join Premium</button></td>
+                    <td><button onclick="openMembershipModal('Pro Plan')" class="btn btnBorder">Join Pro</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Membership Request Modal -->
+<div class="modal" id="membershipModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Join Membership</h5>
+                <button type="button" class="close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="membershipForm">
+                    <div class="form-group">
+                        <label for="plan">Selected Plan</label>
+                        <!-- Display selected plan as non-editable -->
+                        <input type="text" id="planInput" name="plan" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <!-- Prepopulate with user's email and make it readonly -->
+                        <!-- <input type="number" id="userID" name="userID" class="form-control" value="{{ user_id }}" readonly> -->
+                   
+                         
+                        <input type="email" id="emailInput" name="email" class="form-control" value="{{ user_email }}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="subscription_type">Subscription Type</label>
+                        <select id="subscriptionTypeInput" name="subscription_type" class="form-control" required>
+                            <option value="Monthly">Monthly</option>
+                            <option value="Yearly">Yearly</option>
+                        </select>
+                    </div>
+                    <button type="button" onclick="submitMembershipForm()" class="btn btnBorder">Send Request to join</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Styles for modal backdrop */
+    .dsplNone
+    {
+        display: none;
+    }
+    .modal-backdrop-custom {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1040;
+    }
+
+    /* Apply blur and transition effects to main content */
+    .blurred {
+        filter: blur(8px);
+        transition: filter 0.3s ease;
+    }
+</style>
+
+<script>
+function openMembershipModal(plan) {
+    const modal = document.getElementById("membershipModal");
+    const mainContainer = document.getElementById("mainContainer");
+
+    if (modal && mainContainer) {
+        document.getElementById("planInput").value = plan; // Set selected plan
+        modal.style.display = "block";
+        mainContainer.classList.add("blurred"); // Add blur effect to main content
+        const backdrop = document.querySelector(".modal-backdrop-custom");
+        if (backdrop) {
+            backdrop.style.display = "block"; // Show backdrop
+        }
+    } else {
+        console.error("Modal or main container not found in the DOM.");
+    }
+}
+
+function closeModal() {
+    const modal = document.getElementById("membershipModal");
+    const mainContainer = document.getElementById("mainContainer");
+
+    if (modal && mainContainer) {
+        modal.style.display = "none";
+        mainContainer.classList.remove("blurred"); // Remove blur effect from main content
+        const backdrop = document.querySelector(".modal-backdrop-custom");
+        if (backdrop) {
+            backdrop.style.display = "none"; // Hide backdrop
+        }
+    } else {
+        console.error("Modal or main container not found in the DOM.");
+    }
+}
+
+function submitMembershipForm() {
+    const formData = new FormData(document.getElementById("membershipForm"));
+
+    fetch("{% url 'submit_membership_request' %}", {
+        method: "POST",
+        body: formData,
+        headers: {
+            "X-CSRFToken": "{{ csrf_token }}"
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok.");
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.status === "success") {
+            alert(data.message);
+            closeModal();  // Close modal only if successful
+        } else if (data.message === "You already have an active membership.") {
+            alert("You already have an active membership. Please check my Account page for details.");
+        } else {
+            alert("An error occurred: " + data.message);
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        alert("An unexpected error occurred: " + (error.message || "Please try again."));
+    });
+}
+</script>
+{% endblock %}

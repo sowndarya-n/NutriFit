@@ -1,1 +1,5 @@
 /myenv
+/dataset
+/.env
+/__pycache__
+/chatbot/nutriFitModel_new

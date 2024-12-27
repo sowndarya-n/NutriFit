@@ -1,0 +1,19 @@
+.profileCard
+{
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 15px;
+    padding: 30px 20px;
+    align-items: center;
+}
+.profImg
+{
+    border-radius: 100%;
+    width: 250px;
+    height: 250px;
+}
+.profImg2
+{
+    border-radius: 100%;
+    width: 250px;
+    height: 270px;
+}

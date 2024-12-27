@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+{% block extra_css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/chatbot.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'css/global.css' %}"> -->
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4">Blog</h1>
+    <p>NutriFit Blog Posts.</p>
+</div>
+{% endblock %}

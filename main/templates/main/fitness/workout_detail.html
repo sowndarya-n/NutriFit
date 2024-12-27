@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container marB20">
+    <h1 class="mt-4">{{ exercise.name }}</h1>
+    <p class="text-muted">Category: {{ exercise.category.title }}</p>
+    
+    {% if exercise.image %}
+        <div class="row alignItemsCenter justifyCenter">
+            <div class="col-md-5">
+                <img src="{% static exercise.image %}" alt="{{ exercise.name }}" class="img-fluid my-3 rounded">
+            </div>
+        </div>
+        
+    {% endif %}
+
+    <div class="content">
+        <p>{{ exercise.description }}</p>
+        
+        <!-- Display the Routine for the Exercise -->
+        {% if exercise.routine %}
+            <p><strong>Workout Routine:</strong> {{ exercise.routine }}</p>
+        {% endif %}
+    </div>
+
+    <a href="{% url 'workouts_by_category' exercise.category.id %}" class="btn btnBorder mt-4">Back to {{ exercise.category.title }}</a>
+</div>
+{% endblock %}

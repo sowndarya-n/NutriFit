@@ -1,0 +1,37 @@
+
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'img/NutriFit.png' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    
+</head>
+<body>
+    <div class="loginMain">
+        <div class="loginContainer">
+            <h3 class="mar0 textAlignCenter">Welcome back!</h3>
+            <p class="mar0 textAlignCenter tagline loginP">Sign in to your account</p>
+            <hr>
+            <form class="loginForm" method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                {{ form.as_div }}
+                {% if error %}
+                    <p class="loginError">{{ error }}</p>
+                {% endif %}
+                <div class="loginBtnDiv">
+                    <button class="loginBtn" type="submit">
+                       <p>Login</p>
+                    </button>
+                </div>   
+            </form>
+            <p class="textAlignCenter">Don't have an account? <a href="{% url 'signup' %}">Sign up here</a></p>
+        </div>
+    </div>
+    
+</body>
+</html>

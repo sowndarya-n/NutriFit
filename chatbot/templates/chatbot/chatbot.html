@@ -1,0 +1,96 @@
+<div class="chatBoxMain">
+{% extends 'main/base.html' %}
+{% load static %}
+<!-- <link rel="stylesheet" href="{% static 'css/chatbot.css' %}"> -->
+
+{% block content %}
+<div class="container my-5 hgt100per">
+    <div class="row justify-content-center hgt100per">
+        <div class="col-md-10 hgt100per">
+            <div class="card shadow-sm hgt100per">
+                <!-- Chat box -->
+                <div class="card-header text-center">
+                    <h4>NutriFit Assistant</h4>
+                </div>
+                <div class="card-body chat-container" id="chat-box">
+                    <!-- Initial loading spinner will be inserted here -->
+                </div>
+                <!-- Chat input with loading indicator -->
+                <div class="card-footer bg-light">
+                    <div class="input-group">
+                        <input type="text" class="form-control chat-input" id="chat-input" placeholder="Type your message...">
+                        <button class="btn send-button btnBorder" id="send-button"><i class="fas fa-paper-plane"></i> Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- jQuery library -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- Include Font Awesome for icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<!-- JavaScript code to handle chat interactions -->
+<script>
+$(document).ready(function() {
+    // Function to show loading spinner
+    function showLoadingSpinner() {
+        $('#chat-box').append('<div class="text-center my-3"><div class="spinner-border text-primary" role="status"></div></div>');
+        $('#chat-input').prop('disabled', true); // Disable input while loading
+    }
+
+    // Function to hide loading spinner
+    function hideLoadingSpinner() {
+        $('#chat-box').find('.spinner-border').remove(); // Remove spinner only
+        $('#chat-input').prop('disabled', false); // Re-enable input
+    }
+
+    // Handle send button click
+    $('#send-button').click(function() {
+        const userMessage = $('#chat-input').val();
+        if (userMessage) {
+            // Add user message to the chat box
+            $('#chat-box').append('<div class="user-message p-2 bg-primary text-white rounded-pill my-2">' + userMessage + '</div>');
+            showLoadingSpinner(); // Show spinner while waiting for response
+
+            $.ajax({
+                url: '', 
+                type: 'POST',
+                data: {
+                    question: userMessage,
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+                success: function(response) {
+                    const botResponse = response.bot_response;
+                    const chatHistory = response.chat_history;
+
+                    // Clear the chat box before appending new messages
+                    $('#chat-box').empty();
+
+                    // Append chat history
+                    chatHistory.forEach(function(msg) {
+                        const role = msg.role === 'user' ? 'user-message' : 'bot-message';
+                        const align = msg.role === 'user' ? 'text-right' : 'text-left';
+                        $('#chat-box').append('<div class="' + role + ' p-2 my-2 ' + '">' + msg.content + '</div>');
+                    });
+
+                    // Optionally display the bot's response if needed
+                    if (botResponse) {
+                        // $('#chat-box').append('<div class="bot-message p-2 bg-secondary text-white my-2">' + botResponse + '</div>');
+                    }
+
+                    $('#chat-input').val(''); // Clear the input field
+                    hideLoadingSpinner(); // Hide spinner after response
+                },
+                error: function(xhr, status, error) {
+                    console.error('AJAX request failed');
+                    hideLoadingSpinner(); // Hide spinner on error
+                }
+            });
+        }
+    });
+});
+</script>
+{% endblock %}

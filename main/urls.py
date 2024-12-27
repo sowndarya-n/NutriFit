@@ -1,0 +1,32 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.landing, name='landing'),
+    path('login/', views.login, name='login'),
+    path('logout/', views.user_logout, name='logout'),
+    path('signup/', views.signup, name='signup'),
+    path('otp_verification/', views.otp_verification, name='otp_verification'),
+    path('home/', views.home, name='home'),
+    path('about/', views.about_us, name='about_us'),
+    path('contact/', views.contact_us, name='contact_us'),
+    path('fitness/mental_fitness/', views.mental_fitness, name='mental_fitness'),
+    path('blog/<int:post_id>/', views.blog_detail, name='blog_detail'),
+    path('fitness/workouts/', views.workouts, name='workouts'),
+    path('workouts/category/<int:category_id>/', views.workouts, name='workouts_by_category'),
+    path('workout/<int:exercise_id>/', views.workout_detail, name='workout_detail'),  
+    path('fitness/fitness_equipments/', views.fitness_equipments, name='fitness_equipments'),
+    path('nutrition/recipes/', views.recipes, name='recipes'),
+    path('recipes/<int:pk>/', views.recipe_detail, name='recipe_detail'),
+    path('nutrition/guides/', views.guides, name='guides'),
+    path('guides/<int:pk>/', views.guide_detail, name='guide_detail'),
+    path('nutrition/essentials/', views.nutri_essentials, name='nutri_essentials'),
+    path('expert_blogs/', views.expert_blogs, name='expert_blogs'),
+    path('expert_blogs/<int:pk>/', views.expert_blogs_detail, name='expert_blogs_detail'),
+    path('membership/', views.membership, name='membership'),
+    path('submit-membership-request/', views.submit_membership_request, name='submit_membership_request'),
+    path('account/', views.my_account, name='my_account'),
+    path('account/update/', views.update_account, name='update_account'),
+    path('cancel_subscription/', views.cancel_subscription, name='cancel_subscription'),
+    path('cancel_subscription/', views.cancel_subscription, name='cancel_subscription'),
+]

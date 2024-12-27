@@ -1,0 +1,49 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container marB20 mt-4">
+    <div class="row alignItemsCenter justifyCenter">
+        <div class="col-9">
+            <h1>{{ recipe.title }}</h1>
+        </div>
+        <div class="col-3" style="text-align: right;">
+            <a href="{% url 'recipes' %}" class="btn btnBorder mt-auto">Back to Recipes</a>
+        </div>   
+    </div>
+    
+
+    {% if recipe.image %}
+    <div class="blogImgThumbnail">
+        <img src="{% static recipe.image %}" alt="{{ recipe.title }}" class="card-img-top blogImg">
+    </div>   
+    {% endif %}
+
+    <div class="content marT10">
+
+        <h4>Description</h4>
+        <p>{{ recipe.description }}</p>
+
+        <h4 class="marT10">Ingredients</h4>
+        <ul>
+            {% for ingredient in ingredients_list %}
+            <li>{{ ingredient }}</li>
+            {% endfor %}
+        </ul>
+
+        <h4>Instructions</h4>
+        
+            {% for instruction in detailed_instructions_list %}
+            <p>{{ instruction }}</p>
+            {% endfor %}
+        
+        <!-- <p>{{ recipe.detailed_instructions }}</p> -->
+
+        {% if recipe.yt_link %}
+            <a href="{{ recipe.yt_link }}" target="_blank" class="btn btnBorder  marB20 marT10">Learn to cook</a>
+        {% endif %}
+    </div>
+
+
+</div>
+{% endblock %}

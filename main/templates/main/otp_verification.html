@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'img/NutriFit.png' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/otpverify.css' %}">
+</head>
+<body>
+    <div class="otpVerifyMain">
+        <div class="otpVerifyContainer">
+            <h3 class="mar0 textAlignCenter">Verify your account!</h3>
+            <p class="mar0 textAlignCenter tagline verifyP">Check your email for the code</p>
+            <hr>
+            <form class="otpVerifyForm" method="post">
+                {% csrf_token %}
+                <label for="otp">Enter OTP</label>
+                <input type="text" id="otp" name="otp" required>
+                {% if error %}
+                <p class="otpVerifyError">{{ error }}</p>
+                {% endif %}
+                <div class="verifyOTPBtnDiv">
+                    <button class="verifyOtpBtn" type="submit">
+                       <p>Verify OTP</p>
+                    </button>
+                </div> 
+            </form>
+        </div>
+    </div>  
+</body>
+</html>

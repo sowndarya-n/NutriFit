@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4 text-center display-5">Essential Fitness Equipment</h1>
+    <p class="text-center text-muted mb-4">Explore the must-have equipment to enhance your workouts and reach your fitness goals.</p>
+
+    <!-- Equipment List -->
+    <div class="row">
+        {% for equipment in equipment_list %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card shadow-sm h-100 borderRadiusAll15">
+                {% if equipment.image %}
+                <div class="blogImgThumbnail">
+                    <img src="{% static equipment.image %}" class="card-img-top blogImg" alt="{{ equipment.name }}">
+                </div>
+                {% endif %}
+                <div class="card-body cardBlog">
+                    <h5 class="card-title">{{ equipment.name }}</h5>
+                    <p class="card-text">{{ equipment.description }}</p>
+                    <a href="{{ equipment.amazon_link }}" target="_blank" class="btn btnBorder mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

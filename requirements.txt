@@ -1,0 +1,16 @@
+PyPDF2
+streamlit
+faiss-cpu
+altair
+unstructured
+tiktoken
+pinecone-client
+pypdf
+openai
+langchain
+pandas 
+numpy
+python-dotenv
+huggingface-hub
+InstructorEmbedding
+sentence_transformers==2.2.2
