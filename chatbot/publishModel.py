@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 from huggingface_hub import HfApi, Repository, HfFolder
 
 # Log in to Hugging Face
-HfFolder.save_token("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") 
+HfFolder.save_token("****") #Token 
 
 # Initializing the repository
 repo_name = "NutriFitWebApp"  
