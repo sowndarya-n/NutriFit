@@ -22,7 +22,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', "django-insecure-@%t_un4fib84m^3)g41t9c5sgz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nutrifit-4ers.onrender.com']
 
 # Application definition
 
