@@ -129,5 +129,6 @@ unstructured==0.14.7
 unstructured-client==0.23.7
 urllib3==2.2.2
 watchdog==4.0.1
+whitenoise==6.8.2
 wrapt==1.16.0
 yarl==1.9.4
