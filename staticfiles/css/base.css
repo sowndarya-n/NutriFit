@@ -1,0 +1,193 @@
+/* Link to Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+/* CSS */
+body
+{
+    color: #02111B;
+    /* font-family: 'Libre Baskerville', serif; */
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: 400;
+    line-height: 1.6;
+    font-size: 1em;
+} 
+h1 {
+    color: #02111B;
+    font-family: 'Palatino', 'Palatino Linotype', serif;
+    font-weight: 700;
+    font-size: 2em; /* 32px / 16px = 2em */
+}
+
+h2 {
+    color: #02111B;
+    font-family: 'Palatino', 'Palatino Linotype', serif;
+    font-weight: 700;
+    font-size: 1.75em;
+}
+
+h3 {
+    font-family: 'Palatino', 'Palatino Linotype', serif;
+    font-weight: 700;
+    font-size: 1.5em; 
+}
+
+h4 {
+    color: #02111B;
+    font-family: 'Palatino', 'Palatino Linotype', serif;
+    font-weight: 700;
+    font-size: 1.25em; 
+}
+
+h5 {
+    color: #02111B;
+    font-family: 'Palatino', 'Palatino Linotype', serif;
+    font-weight: 700;
+    font-size: 1.125em; 
+}
+
+h6 {
+    color: #02111B;
+    font-family: 'Palatino', 'Palatino Linotype', serif;
+    font-weight: 700;
+    font-size: 1em; 
+}
+p 
+{
+    color: #02111B;
+    font-size: 1em; 
+    /* font-family:Georgia, 'Times New Roman', Times, serif; */
+    font-family: 'Palatino', 'Palatino Linotype', serif;
+    margin-bottom: 0;
+}
+div
+{
+    font-family: 'Palatino', 'Palatino Linotype', serif;
+}
+a
+{
+    /* font-size: 1em;  */
+    color: #02111B;
+    /* font-family:Georgia, 'Times New Roman', Times, serif; */
+    font-family: 'Palatino', 'Palatino Linotype', serif;
+}
+a:hover
+{
+    color: #02111B;
+}
+.bodyWrapper
+{
+    position: relative;
+}
+.tagline
+{
+    font-style: italic;
+    font-family: 'Libre Baskerville', serif;
+}
+.navBarHeader
+{
+    /* border-radius: 50px;
+    margin: 0 10px; */
+    background: #5D737E;
+    color: #FFFFFF;
+}
+.nav-item a
+{
+    color: #FCFCFC;
+}
+.baseClass
+{
+    width: 100%;
+    /* margin: 0 auto; */
+}
+.dropdown-item
+{
+    color: #02111B !important;
+}
+.dropdown-menu
+{
+    left: unset;
+    right: 0;
+}
+button
+{
+    border-radius: 100px;
+    padding: 0 15px;
+    border: unset;
+}
+.textAlignCenter
+{
+    text-align: center;
+}
+.alignItemsCenter
+{
+    align-items: center;
+}
+.justifyContentR
+{
+    justify-content: right;
+}
+.justifyContentCenter
+{
+    justify-content: center;
+}
+footer
+{
+    /* color: #FCFCFC; */
+    background: #5D737E;
+}
+.socialMediaIcons
+{
+    display: flex;
+    align-items: center;
+}
+.marT5
+{
+    margin-top: 5px;
+}
+.marT10
+{
+    margin-top: 10px;
+}
+.marB10
+{
+    margin-bottom: 10px;
+}
+.marB20
+{
+    margin-bottom: 20px;
+}
+.marT20
+{
+    margin-top: 20px !important;
+}
+.padTB10
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.mar0{
+    margin: 0;
+}
+.marL10
+{
+    margin-left: 10px;
+}
+.marR2
+{
+    margin-right: 2px;
+}
+.dropdown-item.active, .dropdown-item:active
+{
+    background-color: #5D737E;
+}
+.justifyCenter
+{
+    justify-content: center;
+}
+.borderRadiusAll15
+{
+    border-radius: 15px;
+}

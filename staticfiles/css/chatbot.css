@@ -1,0 +1,178 @@
+/* Chat container styling */
+/* .chat-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  color: #02111B;
+} */
+
+.hgt100per
+{
+  height: 100%;
+}
+.card-body
+{
+  overflow: scroll;
+}
+.chatBoxMain .navBarHeader
+{
+  height: 60px;
+}
+.chatBoxMain .baseClass
+{
+  /* height: 330px; */
+  height: 370px;
+  margin-bottom: 12px;
+}
+
+.card-header
+{
+  background-color: #5D737E;
+  color: #fff;
+}
+.card-header h4
+{
+
+  color: #fff;
+}
+
+/* Chat box styling */
+.chat-box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  max-height: 500px;
+  overflow-y: scroll;
+  background-color: #fff;
+  border-radius: 5px;
+  color: #02111B;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* User message styling - aligned to the right */
+.user-message {
+  background-color: #ccc;
+  color: #02111B;;
+  margin-left: auto; /* Pushes message to the right */
+  margin-right: 0;
+  max-width: 70%; /* Limit the message bubble width */
+  text-align: justify;
+  border-radius: 20px;
+  padding: 5px 15px !important;
+  display: block;
+  clear: both;
+  margin-bottom: 10px;
+  width: fit-content;
+}
+
+/* Bot message styling - aligned to the left */
+.bot-message {
+  background-color: #6c757d;
+  color: white;
+  margin-right: auto; /* Pushes message to the left */
+  margin-left: 0;
+  max-width: 70%; /* Limit the message bubble width */
+  text-align: justify;
+  border-radius: 15px;
+  border-radius: 20px !important;
+  padding: 10px !important;
+  display: block;
+  clear: both;
+  margin-bottom: 10px;
+}
+
+/* Chat input styling */
+.chat-input {
+  width: calc(100% - 60px);
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Send button styling */
+.send-button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: #0056b3;
+}
+
+/* Loading spinner styling */
+.loader {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #3498db;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin: 10px auto; /* Adjust margin to center */
+  display: block; /* Ensure it's block element */
+  text-align: center; /* Center the spinner */
+}
+
+/* Hide the "Loading" text and keep only the spinner */
+.loader::before {
+  content: ""; /* Prevent adding "Loading" text */
+  display: inline-block;
+}
+
+/* Ensure the spinner rotates smoothly */
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+
+/* Smooth scrolling for the chat box */
+.chat-box {
+  scroll-behavior: smooth;
+}
+
+/* Adjust margins and paddings */
+.user-message, .bot-message {
+  padding: 10px;
+  margin-bottom: 15px;
+}
+.btnBorder
+{
+    color: #5D737E;
+    border-color: #5D737E;
+    background-color: #fff;
+}
+.btnBorder:not(:disabled):not(.disabled).active, .btnBorder:not(:disabled):not(.disabled):active, .show>.btnBorder.dropdown-toggle
+{
+    color: #fff;
+    background-color: #5D737E;
+    border-color: #5D737E;
+}
+.btnBorder:not(:disabled):not(.disabled).hover, .btnBorder:not(:disabled):not(.disabled):hover, .show>.btnBorder.dropdown-toggle
+{
+    color: #fff;
+    background-color: #5D737E;
+    border-color: #5D737E;
+}
+/* Optional: Additional styling for mobile devices */
+@media (max-width: 768px) {
+  .chat-container {
+      padding: 10px;
+  }
+
+  .chat-box {
+      max-height: 400px;
+  }
+}
